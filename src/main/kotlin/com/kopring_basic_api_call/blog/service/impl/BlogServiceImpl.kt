@@ -49,7 +49,7 @@ class BlogServiceImpl : BlogService {
                     .queryParam("size", blogDto.size)
                     .build()
             }
-            .header("Authorization", "KakaoAK 9ca8d7561e020f4fa4ee6b029d009c81")
+            .header("Authorization", "KakaoAK ")
             .retrieve()
             .bodyToMono<String>()
 

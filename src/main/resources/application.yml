@@ -30,4 +30,4 @@ logging:
         type.descriptor.sql: trace
         SQL: debug
 
-REST_API_KEY: "9ca8d7561e020f4fa4ee6b029d009c81"
+REST_API_KEY: ""
