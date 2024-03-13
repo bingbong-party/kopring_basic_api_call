@@ -2,6 +2,7 @@ package com.kopring_basic_api_call.member.controller
 
 import com.kopring_basic_api_call.member.dto.MemberDtoRequest
 import com.kopring_basic_api_call.member.service.MemberService
+import jakarta.validation.Valid
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -16,7 +17,7 @@ class MemberController (
      * 회원가입
      */
     @PostMapping("/signup")
-    fun signUp(@RequestBody input: MemberDtoRequest): String {
+    fun signUp(@RequestBody @Valid input: MemberDtoRequest): String {
         return memberService.signUp(input)
     }
 }

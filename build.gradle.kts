@@ -28,6 +28,7 @@ dependencies {
     runtimeOnly("com.mysql:mysql-connector-j")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     implementation("org.springframework:spring-webflux")
+    implementation("org.springframework.boot:spring-boot-starter-validation:3.2.3")
 }
 
 // allOpen - 해당 어노테이션이이션이 붙은 클래스를 모두 open 으로 바꿔줌

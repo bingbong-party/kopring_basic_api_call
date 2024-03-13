@@ -9,9 +9,9 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/study_db
-    username: ej
-    password: Abcd123@
+    url: jdbc:mysql://localhost:3306/zyandb
+    username: bingbong
+    password: 123!@
   jpa:
     open-in-view: true
     hibernate:
