@@ -1,5 +1,6 @@
 package com.kopring_basic_api_call.member.controller
 
+import com.kopring_basic_api_call.common.dto.BaseResponse
 import com.kopring_basic_api_call.member.dto.MemberDtoRequest
 import com.kopring_basic_api_call.member.service.MemberService
 import jakarta.validation.Valid
@@ -17,7 +18,9 @@ class MemberController (
      * 회원가입
      */
     @PostMapping("/signup")
-    fun signUp(@RequestBody @Valid input: MemberDtoRequest): String {
-        return memberService.signUp(input)
+    fun signUp(@RequestBody @Valid input: MemberDtoRequest): BaseResponse<Unit> { // Unit : 비어있는 값임을 명시
+        val resultMsg: String = memberService.signUp(input)
+
+        return BaseResponse(message = resultMsg)
     }
 }

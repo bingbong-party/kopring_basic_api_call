@@ -1,5 +1,6 @@
 package com.kopring_basic_api_call.member.service
 
+import com.kopring_basic_api_call.common.exception.InvalidInputException
 import com.kopring_basic_api_call.member.dto.MemberDtoRequest
 import com.kopring_basic_api_call.member.entity.Member
 import com.kopring_basic_api_call.member.repository.MemberRepository
@@ -20,18 +21,10 @@ class MemberService(
 
         // ID 중복 검사
         if (member != null) {
-            return "이미 등록된 ID 입니다."
+            throw InvalidInputException("loginId", "이미 등록된 ID 입니다.")
         }
 
-        member = Member(
-            null,
-            memberDtoRequest.loginId,
-            memberDtoRequest.password,
-            memberDtoRequest.name,
-            memberDtoRequest.birthDate,
-            memberDtoRequest.gender,
-            memberDtoRequest.email
-        )
+        member = memberDtoRequest.toEntity()
 
         memberRepository.save(member)
 

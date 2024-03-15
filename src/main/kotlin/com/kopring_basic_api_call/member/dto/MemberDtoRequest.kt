@@ -3,10 +3,10 @@ package com.kopring_basic_api_call.member.dto
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.kopring_basic_api_call.common.annotation.ValidEnum
 import com.kopring_basic_api_call.common.status.Gender
+import com.kopring_basic_api_call.member.entity.Member
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotBlank
 import jakarta.validation.constraints.Pattern
-import org.springframework.format.annotation.DateTimeFormat
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -66,4 +66,7 @@ data class MemberDtoRequest (
     private fun String.toLocalDate(): LocalDate =
             // 아래 this 는 위 'String' 을 의미한다.
             LocalDate.parse(this, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+
+    fun toEntity(): Member =
+            Member(id, loginId, password, name, birthDate, gender, email)
 }
